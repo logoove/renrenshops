@@ -44,6 +44,7 @@ function table_arr($table) {
         return $td_array;   
 }
 function getbook1($key){
+global $seturl,$setimg;
 $url = "http://61.184.81.185:8000/searchbook2.ASP";
 $arr = array(
 'T1'	=>mb_convert_encoding($key,"gb2312",'utf-8'),
@@ -69,7 +70,7 @@ preg_match('/上一页([\s\S]*?)<a/',$data,$page);
 $pages = trim($page[1]);
 $is = (empty($pages))?"no":"yes";
 if($is=="no"){
-return "搜索的图书不存在";
+return "搜索的图书不存在，请<a href='https://www.baidu.com'>留言</a>";
 }else{
 
 preg_match('/\<table ([\s\S]*?)<\/table\>/',$data,$match);
@@ -83,8 +84,8 @@ $table = table_arr($matchs);
 $news[] = array(
 			'title' =>"第".$pages."页,回复p+数字翻页,注意不可大于总页数",
 			'description' =>'',
-			'picurl' => '',
-			'url' =>''
+			'picurl' => "../book/tu.jpg",
+			'url' =>"https://www.baidu.com"
 		);
 foreach($table as $k=>$v){
     if($k>0){
@@ -134,8 +135,8 @@ $table = table_arr($matchs);
 $news[] = array(
 			'title' =>"第".$pages."页,回复p+数字翻页,注意不可大于总页数",
 			'description' =>'',
-			'picurl' => '',
-			'url' =>''
+			'picurl' => "../book/tu.jpg",
+			'url' =>"https://www.baidu.com"
 		);
 foreach($table as $k=>$v){
     if($k>0){
@@ -158,8 +159,8 @@ $weid = $_W['uniacid'];
 $openid = $_W['openid'];
 $keyword=trim($this->message['content']);
 $key = mb_substr($keyword, 0,2,'utf-8');
-$re = preg_match('/藏馆(.*)/', $keyword, $matchs);
-if($key=="藏馆"){
+$re = preg_match('/馆藏(.*)/', $keyword, $matchs);
+if($key=="馆藏"){
 $row = pdo_fetch("SELECT * FROM ".tablename('yoby_books')." WHERE weid = :weid and openid = :openid", array(':weid'=>$weid ,":openid"=>$openid));
 if(empty($row)){
 pdo_insert('yoby_books',array('weid'=>$weid,'openid'=>$openid,'book'=>$matchs[1]));

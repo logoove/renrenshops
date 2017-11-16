@@ -25,4 +25,4 @@ CREATE TABLE `ims_yoby_books` (
   `openid` varchar(65) DEFAULT NULL,
   `book` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;

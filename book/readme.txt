@@ -1,5 +1,5 @@
 添加正则
- ^p(.*) ^藏馆(.*) 
+ ^p(.*) ^馆藏(.*) 
  
  book目录放到微擎同级目录
  book_api.php放到framework\builtin\userapi\api

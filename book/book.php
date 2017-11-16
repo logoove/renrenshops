@@ -60,7 +60,7 @@ $table2 = table_arr($arr2);
 <html>
 <head>
 <meta charset="utf-8">
-<title></title>
+<title>馆藏图书详情</title>
  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
      <link rel="stylesheet" href='weuix.min.css' />
 <script type="text/javascript" src="zepto.min.js"></script>

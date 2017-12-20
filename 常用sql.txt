@@ -1,0 +1,7 @@
+SELECT * FROM ims_ewei_shop_member  where isagent = 1 and `status` = 1;找出所有米掌柜
+
+SELECT count(*) as dami_count from ims_ewei_shop_member where agentid = 581 找出米掌柜一级用户
+
+SELECT * from ims_ewei_shop_member where agentid in(SELECT id from ims_ewei_shop_member where agentid = 581) 找出米掌柜二级用户
+
+select * from ims_ewei_shop_commission_apply where uniacid=5 and id=17 提现订单

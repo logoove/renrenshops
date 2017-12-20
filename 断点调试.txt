@@ -1,0 +1,1 @@
+document.cookie = "XDEBUG\_SESSION=PHPSTORM; path=/";

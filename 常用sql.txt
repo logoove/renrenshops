@@ -5,3 +5,22 @@ SELECT count(*) as dami_count from ims_ewei_shop_member where agentid = 581 找出
 SELECT * from ims_ewei_shop_member where agentid in(SELECT id from ims_ewei_shop_member where agentid = 581) 找出米掌柜二级用户
 
 select * from ims_ewei_shop_commission_apply where uniacid=5 and id=17 提现订单
+
+在商品表ims_ewei_shop_goods中,货号(商品编号)是唯一的goodssn
+isnew 是否新上
+ishot 是否热卖
+isdiscount 是否促销
+isrecommand 是否推荐
+status 1上架 0下架
+deleted 是否删除 1是 0否
+查询某个商户所有商品
+select * from ims_ewei_shop_goods where status=1 and deleted=0 and uniacid=5 and merchid=81
+
+在ims_ewei_shop_order表中
+ismr 是否流量充值 0否
+deleted 是否删除 0否
+agentid 上级id 上级id=0是总店推荐
+isvirtual 是否虚拟物品
+isparent 是否父订单0否 一般查询都需要=0
+parentid 父订单id
+虚拟物品条件 o.ismr=0 and o.deleted=0 and o.isparent=0 and o.agentid>0 and isvirtual=1

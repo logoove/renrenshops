@@ -24,3 +24,6 @@ isvirtual 是否虚拟物品
 isparent 是否父订单0否 一般查询都需要=0
 parentid 父订单id
 虚拟物品条件 o.ismr=0 and o.deleted=0 and o.isparent=0 and o.agentid>0 and isvirtual=1
+
+ewei_shop_commission_apply 服务费提现申请表
+佣金和佣金提现状态 在订单明细表中  status1表示一级状态 申请状态，-2删除，-1无效，0未申请，1申请，2审核通过 3已打款 commission1是佣金

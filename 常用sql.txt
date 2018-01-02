@@ -27,3 +27,8 @@ parentid 父订单id
 
 ewei_shop_commission_apply 服务费提现申请表
 佣金和佣金提现状态 在订单明细表中  status1表示一级状态 申请状态，-2删除，-1无效，0未申请，1申请，2审核通过 3已打款 commission1是佣金
+
+$data = m('common')->getPluginset('commission')['become_goodsid'];//获取成为分销商商品id
+
+服务费修改方法
+先到ewei_shop_member表找到一个用户,查看openid和agentid 将agentid改成自己的,然后去订单表找到openid是这个的订单,并将agentid改成自己的即可

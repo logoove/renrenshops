@@ -32,3 +32,15 @@ $data = m('common')->getPluginset('commission')['become_goodsid'];//获取成为分销
 
 服务费修改方法
 先到ewei_shop_member表找到一个用户,查看openid和agentid 将agentid改成自己的,然后去订单表找到openid是这个的订单,并将agentid改成自己的即可
+
+米额度判断
+     $credits = m('member')->getCredit($openid, 'credit2');
+
+        if ($credits < $order['goodriceprice']) {
+            if ($_W['ispost']) {
+                show_json(0, '米额不足,请充值1');
+            }
+            else {
+                message('米额不足，请充值', mobileUrl('goods',array('cate'=>28)), 'success'); // 线上购买地址
+            }
+        }
